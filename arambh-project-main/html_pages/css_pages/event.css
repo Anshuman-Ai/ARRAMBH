@@ -17,6 +17,119 @@
 html{
   scroll-behavior: smooth;
 }
+/* slider css */
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  vertical-align: middle;
+  width: 100%;
+  height: 70vh;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot-container {
+  position: absolute;
+  bottom: 20px;
+  left: 45%;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px
+  }
+}
+
+@media (min-width:400px) and (max-width: 600px) {
+  .mySlides img {
+    height: 50vh;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .dot-container {
+    bottom: 15px;
+    left: 40%;
+  }
+}
+@media (max-width: 400px) {
+  .mySlides img {
+    height: 40vh;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dot-container {
+    bottom: 12px;
+    left: 30%;
+  }
+}
+
 /* upcoming event */
 .upcoming-section{
   display: flex;
@@ -26,7 +139,7 @@ html{
 }
 .upcoming-event{
   width: 390px;
-  min-height: 500px;
+  max-height: 500px;
   background: rgb(255, 255, 255);
   box-shadow: .01px .01px 5px .01px #cecece;
   overflow: hidden;
@@ -35,35 +148,22 @@ html{
   transition: 0.8s ease-in-out;
   border: 1px dashed transparent;
 }
-.upcoming-event:hover{
-  background: #f1f0f0;
-  border:1px dashed blue;
-}
 .upcoming-event img{
-  overflow: hidden;
-  transition: 0.8s ease-in-out;
+  width: 100%;
+  max-height: 350px;
+  transition:  0.8s;
 }
-.upcoming-event:hover img{
-  transform: scale(1.0456);
-}
-.upcoming-event-content{
-  padding: 25px;
-}
-.upcoming-event-content span{
-  display: block;
-  line-height: 1.5rem;
-  font-size: 14px;
+.upcoming-event img:hover{
+  transform: scale(1.05);
 }
 .upcoming-event-content p{
   font-size: 14px;
-  color: rgb(85, 85, 85);
-  font-weight: 400;
+    color: rgb(85, 85, 85);
+    text-align: left;
+    margin: 20px;
 }
 .upcoming-event-content h4{
-  font-weight: 600;
-  font-size: 18px;
-  color: black;
-  margin-top: 13px;
+  margin: 50px 20px;
 }
 .btn a{
   text-decoration: none;
@@ -104,6 +204,7 @@ h1{
   }
   .event-content{
     width: 100%;
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: .01px .01px 5px .01px #cecece;
     overflow: hidden;
@@ -111,8 +212,8 @@ h1{
   }
   .event-content img{
     width: 100%;
+    max-height: 350px;
     transition: 0.8s;
-    height: auto;
   }
   .event-content img:hover{
     transform: scale(1.05);
@@ -158,7 +259,7 @@ h1{
     color: rgb(255, 255, 255);
     background: var(--blue);
   }
-  /* media queries  */
+
   @media only screen and (min-width:200px) and (max-width:767px){
     .upcoming-event img{
         width: 100%;
@@ -191,4 +292,5 @@ h1{
         font-size: 2.2rem;
         font-weight: 600;
       }
+  
   }

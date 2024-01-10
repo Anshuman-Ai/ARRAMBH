@@ -40,18 +40,45 @@
       </a>
     </div>
   </nav>
-  <div class="slider-container">
+  <!-- <div class="slider-container">
     <div class="slider">
         <div class="slide"><img src="join1.png" alt="Slide 1"></div>
         <div class="slide"><img src="AARAMBH.png" alt="Slide 2"></div>
         <div class="slide"><img src="AARAMBH1.png" alt="Slide 3"></div>
         <div class="slide"><img src="a1.png" alt="Slide 4"></div>
         <div class="slide"><img src="aa2.png" alt="Slide 5"></div>
-        <!-- Add more slides as needed -->
+  
     </div>
     <div class="bullets"></div>
-</div>
-  <script>
+</div> -->
+<section>
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <a href="#"><img src="join1.png"></a>
+    </div>
+    <div class="mySlides fade">
+      <a href="#"><img src="AARAMBH.png"></a>
+    </div>
+    <div class="mySlides fade">
+      <a href="#"><img src="AARAMBH1.png"></a>
+    </div>
+    <div class="mySlides fade">
+      <a href="#"><img src="a1.png"></a>
+    </div>
+    <div class="mySlides fade">
+      <a href="#"><img src="aa2.png"></a>
+    </div>
+    <div class="dot-container">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+  <!-- <script>
     const slider = document.querySelector('.slider');
     const bulletsContainer = document.querySelector('.bullets');
     let counter = 0;
@@ -95,7 +122,7 @@
 
         updateSlider();
     }, 3000); // Change 3000 to your desired interval in milliseconds
-</script>
+</script> -->
  
   <section class="purpose">
     <h2>Our Purpose</h2>
@@ -291,6 +318,26 @@
       arrowBtn.style.color="";
       arrowBtn.style.fontSize="";
     });
+// slider js
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 4000); // Change image every 2 seconds
+    }
 
   </script>
 </body>

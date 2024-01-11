@@ -260,4 +260,26 @@ h3 {
   .right img {
     width: 70%;
   }
+  .team-img img {
+    height: 40vh;
+  }
+}
+@media (max-width:350px) {
+
+  .wd-container,
+  .game-container {
+    height: 40vh;
+    padding: 0;
+  }
+  .left img,
+  .right img {
+    width: 60%;
+  }
+  .wd-container h2,
+  .game-container h2{
+    font-size: 24px;
+  } 
+  .team-img img {
+    height: 25vh;
+  }
 }

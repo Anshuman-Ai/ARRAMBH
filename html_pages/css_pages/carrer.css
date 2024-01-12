@@ -174,7 +174,7 @@ h3 {
 }
 
 .wd-container {
-  background-image: url(/html_pages/web-dev-img.jpg);
+  /* background-image: url(/html_pages/web-dev-img.jpg); */
   background-position: center;
   background-size: cover;
 }
@@ -185,7 +185,7 @@ h3 {
   width: 40%;
   height: 40%;
   margin-bottom: 30px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .left,
@@ -205,7 +205,7 @@ h3 {
 }
 
 .game-container {
-  background-image: url(/html_pages/game-dev-img.png);
+  /* background-image: url(/html_pages/game-dev-img.png); */
   background-position: center;
   background-size: cover;
 }
@@ -242,7 +242,8 @@ h3 {
   .right img {
     width: 60%;
     margin: 3vw;
-    border-radius: 50%;
+    /* border-radius: 50%;
+     */
   }
   .team-img img {
     height: 60vh;

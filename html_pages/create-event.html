@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css_pages/NavFooterForEveryPage.css">
+  <link rel="stylesheet" href="css_pages/create-event.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav>
+    <div class="main-nav">
+      <div class="logo">
+        <img src="arambh.png" onclick="window.location.href='index.html';">
+      </div>
+      <div class="navbar" id="navbar">
+        <ul>
+          <li class="nav__item"><a href="html_pages/goals.html" class="nav__link">Goals</a></li>
+          <li class="nav__item"><a href="https://discord.gg/SNjR5HY5" class="nav__link">Community</a></li>
+          <li class="nav__item"><a href="html_pages/event.html" class="nav__link">Events</a></li>
+          <li class="nav__item"><a href="mailto:arambh.community@gmail.com" class="nav__link">Contact Us</a></li>
+          <li class="nav__item"><a href="index2.html"><button id="login">Log Out<span>&#10230;</span></button></a></li>
+        </ul>
+      </div>
+      <a href="#" class="nav-toggle" id="nav-toggle">
+        <i class="fa-sharp fa-solid fa-bars"></i>
+      </a>
+    </div>
+  </nav>
+  <!-- navbar end -->
+  <section>
+    <div class="all-contaoiner">
+      <div class="general-info">
+        <div class="general-links">Analytics</div>
+        <div class="general-links">Events</div>
+        <div class="general-links">Members</div>
+      </div>
+      <div class="event-info">
+        <div class="new-event-btn">
+          <button>New Event<i class="fa-solid fa-caret-down"></i></button>
+        </div>
+        <form>
+          <div class="container">
+            <h1>Create WorkShop Event</h1>
+            <p>Please fill in this form to create an event.</p>
+
+            <label for="title"><b>Title</b></label>
+            <input type="text" name="title" id="title" placeholder="Enter Title" required>
+            <label for="short-dis"><b>Short Discruption</b></label><br>
+            <textarea name="short-dis" id="short-dis" cols="50" rows="10"></textarea>
+            <br>
+            <label for="full-dis"><b>Full Discruption</b></label><br>
+            <textarea name="full-dis" id="full-dis" cols="50" rows="15"></textarea>
+            <br>
+            <p><b>Event thumbnail</b></p>
+            <img src="web-dev-img.jpg" alt="" id="thumbnail">
+            <label for="event-thumbnail" class="event-thumb-btn"><b>Upload file</b></label><br>
+            <input type="file" id="event-thumbnail" accept="image/jpg, image/png,image/jpeg">
+            <div class="clearfix">
+              <button type="submit" class="btn">Sign Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </section>
+<script>
+  let thumbnail=document.getElementById('thumbnail')
+  let eventThumbnail=document.getElementById('event-thumbnail')
+  eventThumbnail.onchange=()=>{
+    thumbnail.src=URL.createObjectURL(eventThumbnail[0])
+  }
+</script>
+</body>
+
+</html>

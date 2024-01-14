@@ -10,27 +10,6 @@
   <title>Aarambh</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="media.css">
-  <style>
-    .tool{
-      width: 100%;
-      display: none;
-      height: 30px;
-      margin-top: 10px;
-      /* background-color: blue; */
-    }
-    .button{
-      float: right;
-      margin-right:20px ;
-      height: 100%;
-    }
-    #btn{
-      height: 100%;
-      width: 100px;
-      padding: 0 10px;
-      border-radius: 10px;
-      background-color: azure;
-    }
-  </style>
 </head>
 
 <body>
@@ -39,9 +18,7 @@
     <div class="event">
         <p>A coding rush will be held <span>,To Join</span> <a class="btn" href="html_pages/event.html">Click here &rarr;</a></p>
     </div>    
-    .
 </header> -->
-
   <!-- navbar -->
   <nav>
     <div class="main-nav">
@@ -49,7 +26,7 @@
            <img src="arambh.png">
          </a> -->
       <div class="logo">
-        <img src="arambh.png" onclick="window.location.href='index.html';">
+        <img src="arambh.png" onclick="window.location.href='/index.html';">
       </div>
       <div class="navbar" id="navbar">
         <ul>
@@ -57,7 +34,7 @@
           <li class="nav__item"><a href="https://discord.gg/SNjR5HY5" class="nav__link">Community</a></li>
           <li class="nav__item"><a href="html_pages/event.html" class="nav__link">Events</a></li>
           <li class="nav__item"><a href="mailto:arambh.community@gmail.com" class="nav__link">Contact Us</a></li>
-          <li class="nav__item"><a href="copy-index2.html"><button id="login">Login<span>&#10230;</span></button></a></li>
+          <li class="nav__item"><a href="html_pages/login.html"><button id="login">Login<span>&#10230;</span></button></a></li>
         </ul>
       </div>
       <a href="#" class="nav-toggle" id="nav-toggle">
@@ -65,11 +42,6 @@
       </a>
     </div>
   </nav>
-  <div class="tool" id="tool">
-    <div class="button">
-      <a href="html_pages/create-event.html"><button id="btn">event tool</button></a>
-    </div>
-  </div>
   <div>
     <center>
       <video width="100%" height="90%" autoplay loop muted>
@@ -99,8 +71,6 @@
 
   <section class="event">
     <h2>Event</h2>
-    <div class="Events">
-    <img src="Events.png" width="100%">
     <p class="no"><a class="arrow-btn" href="html_pages/event.html">Read more</a></p>
     <!-- <div class="eventin">
       <div class="event-content">
@@ -145,20 +115,7 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
   <section class="test">
-  <div class="test-content">
-    <center>
-    <video width="80%" height="60%" autoplay loop muted>
-      <source src="testimonials.mp4" type="video/mp4">
-      <source src="av.ogg" type="video/ogg">
-      Your browser does not support the video tag.
-    </video></center>
-  </div>
-  </section>
-  
-
-  <!-- <section class="test">
     <h2>Testimonials</h2>
     <div class="test-content">
       <img class="qoute" src="https://www.hcltech.com/sites/default/files/images/about-us/qoute.png">
@@ -174,7 +131,7 @@
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <section class="developer">
     <h2 class="leads">Hall Of Fame</h2>
@@ -291,58 +248,13 @@
     });
 
   </script>
-  <!-- script for login logout -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    const firebaseConfig = {
-      apiKey: "AIzaSyBHm4KNjA5CRiCcZt43f1ZRGknhC2W8UIw",
-      authDomain: "aarambh-login.firebaseapp.com",
-      databaseURL: "https://aarambh-login-default-rtdb.firebaseio.com",
-      projectId: "aarambh-login",
-      storageBucket: "aarambh-login.appspot.com",
-      messagingSenderId: "457887648284",
-      appId: "1:457887648284:web:9e814d44c1509e7f85add9"
-    };
-    const app = initializeApp(firebaseConfig);
-    let db = getFirestore();
-    const auth = getAuth();
+  <!-- <script>
     let userCreds = JSON.parse(localStorage.getItem("user-creds"));
     let userInfo = JSON.parse(localStorage.getItem("user-info"));
-    let login = document.getElementById('login')
-    let tool=document.getElementById('tool')
-    let signOut = () => {
-      localStorage.removeItem("user-creds");
-      localStorage.removeItem("user-info");
-      window.location.href = "copy-index2.html"
-    }
-    let checkCred = () => {
-      if (!localStorage.getItem("user-creds")) {
-      window.location.href = "copy-index2.html"
-      }
-      else {
-        login.innerHTML = "Log Out <span>&#10230;</span>"
-        // console.log("Sigh Out");
-      }
-    }
-    let checkAdmin = async () => {
-      // console.log(credentials);
-      let creds=JSON.parse(localStorage.getItem("user-creds"))
-      var ref = doc(db, "userAuthList",creds.uid)
-      const docSnap = await getDoc(ref)
-      try{
-      if(docSnap.data().admin=='true'){
-        tool.style.display="block"
-      }}catch(e){
-        console.log(e)
-      }
-    }
-    window.addEventListener("load", checkCred)
-    login.addEventListener('click', signOut)
-    window.addEventListener("load", checkAdmin)
-  </script>
+    let login=document.getElementById('login')
+    login.addEventListener("click",()=>{
+        window.location.href=
+    })
+  </script> -->
 </body>
-
 </html>

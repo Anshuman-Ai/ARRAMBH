@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="css_pages/signup.css">
     <meta charset="UTF-8">
@@ -7,9 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="arambh-template.jpg">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
     <title>Sign Up | Aarambh</title>
 </head>
+
 <body>
     <section class="in">
         <div class="container">
@@ -25,17 +28,19 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                <div class="password-input">
-                    <input type="password" id="password" name="password" placeholder="Password (8+ character)" required>
-                    <button type="button" id="show-password" onclick="togglePasswordVisibility()">Show</button>
-                </div>
+                    <div class="password-input">
+                        <input type="password" id="password" name="password" placeholder="Password (8+ character)"
+                            required>
+                        <button type="button" id="show-password" onclick="togglePasswordVisibility()">Show</button>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <p class="privacy">By clicking Agree & Join, you agree to the Aarambh 
-                        <a href="A:/arambhcopy/home/privacy.html">Privacy policy</a></p>
+                    <p class="privacy">By clicking Agree & Join, you agree to the Aarambh
+                        <a href="A:/arambhcopy/home/privacy.html">Privacy policy</a>
+                    </p>
                 </div>
                 <div class="form-group1">
-                    <input type="submit" value="Agree & Join">
+                    <input type="submit" id="submit" value="Agree & Join">
                 </div>
                 <div class="or">
                     <p><span>or</span></p>
@@ -44,5 +49,68 @@
             </form>
         </div>
     </section>
+    <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyBHm4KNjA5CRiCcZt43f1ZRGknhC2W8UIw",
+            authDomain: "aarambh-login.firebaseapp.com",
+            databaseURL: "https://aarambh-login-default-rtdb.firebaseio.com",
+            projectId: "aarambh-login",
+            storageBucket: "aarambh-login.appspot.com",
+            messagingSenderId: "457887648284",
+            appId: "1:457887648284:web:9e814d44c1509e7f85add9"
+        };
+        const app = initializeApp(firebaseConfig);
+        // let db=getDatabase();
+        const auth = getAuth();
+        const db = getFirestore();
+        const password = document.getElementById('password').value
+        let submit = document.getElementById('submit')
+        let registerUsers=(e)=>{
+            e.preventDefault();
+            const name = document.getElementById('name').value
+            let email = document.getElementById('email').value
+            let password = document.getElementById('password').value
+            createUserWithEmailAndPassword(auth,email,password)
+            .then(async (credentials)=>{
+                // console.log(credentials)
+                var ref=doc(db, "userAuthList", credentials.user.uid)
+                await setDoc(ref,{
+                    username:name
+                })
+                swal("Successfull", "User Created Successfully", "success")
+
+            })
+            .catch((err)=>{
+                alert(`Error:${err.message}`)
+                console.log(err.code);
+                console.log(err.message);
+            })
+        }
+        submit.addEventListener('click',registerUsers)
+        //   reference of db 
+        // var signupDB = firebase.database().ref('signup-form')
+        // document.getElementById('submit').addEventListener('click',(e)=>{
+        //     e.preventDefault;
+        //     const saveMessage=(name,email,password)=>{
+        //         var loginForm=signupDB.push();
+        //         loginForm.set({
+        //             username:name,
+        //             email:email,
+        //             password:password,
+        //         })
+        //     }
+        //     var name=document.getElementById('name').value
+        //     var email=document.getElementById('email').value
+        //     var password=document.getElementById('password').value
+        //     saveMessage(name,email,password)
+        //     console.log('hii')
+        // })
+    </script>
 </body>
+
 </html>

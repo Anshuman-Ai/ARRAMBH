@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <script src="https://kit.fontawesome.com/c81f536b56.js" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/c81f536b56.js" crossorigin="anonymous"></script>
@@ -10,75 +9,131 @@
   <title>Aarambh</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="media.css">
-  <style>
-    .tool{
-      width: 100%;
-      display: none;
-      height: 30px;
-      margin-top: 10px;
-      /* background-color: blue; */
-    }
-    .button{
-      float: right;
-      margin-right:20px ;
-      height: 100%;
-    }
-    #btn{
-      height: 100%;
-      width: 100px;
-      padding: 0 10px;
-      border-radius: 10px;
-      background-color: azure;
-    }
-  </style>
 </head>
-
 <body>
   <!--===== HEADER =====-->
   <!-- <header>
     <div class="event">
         <p>A coding rush will be held <span>,To Join</span> <a class="btn" href="html_pages/event.html">Click here &rarr;</a></p>
     </div>    
-    .
 </header> -->
-
   <!-- navbar -->
   <nav>
-    <div class="main-nav">
+    <div class="main-nav" >
       <!-- <a href="index.html" class="logo"> 
            <img src="arambh.png">
          </a> -->
-      <div class="logo">
-        <img src="arambh.png" onclick="window.location.href='index.html';">
-      </div>
-      <div class="navbar" id="navbar">
+         <div class="logo">
+          <img src="arambh.png" onclick="window.location.href='index.html';" >
+         </div>
+      <div class="navbar" id="navbar">          
         <ul>
-          <li class="nav__item"><a href="html_pages/goals.html" class="nav__link">Goals</a></li>
-          <li class="nav__item"><a href="https://discord.gg/SNjR5HY5" class="nav__link">Community</a></li>
-          <li class="nav__item"><a href="html_pages/event.html" class="nav__link">Events</a></li>
-          <li class="nav__item"><a href="mailto:arambh.community@gmail.com" class="nav__link">Contact Us</a></li>
-          <li class="nav__item"><a href="copy-index2.html"><button id="login">Login<span>&#10230;</span></button></a></li>
-        </ul>
-      </div>
+            <li class="nav__item"><a href="html_pages/goals.html" class="nav__link">Goals</a></li>
+            <li class="nav__item"><a href="https://discord.gg/SNjR5HY5" class="nav__link">Community</a></li>
+            <li class="nav__item"><a href="html_pages/event.html" class="nav__link">Events</a></li>
+            <li class="nav__item"><a href="mailto:arambh.community@gmail.com" class="nav__link">Contact Us</a></li>
+            <li class="nav__item"><a href="html_pages/joinForm.html"><button>Join Aarambh<span>&#10230;</span></button></a></li>                       
+        </ul> 
+      </div> 
       <a href="#" class="nav-toggle" id="nav-toggle">
         <i class="fa-sharp fa-solid fa-bars"></i>
       </a>
     </div>
   </nav>
-  <div class="tool" id="tool">
-    <div class="button">
-      <a href="html_pages/create-event.html"><button id="btn">event tool</button></a>
+
+<div>
+  <center>
+  <video width="100%" height="90%" autoplay loop muted>
+    <source src="av.mp4" type="video/mp4">
+    <source src="av.ogg" type="video/ogg">
+    Your browser does not support the video tag.
+  </video></center>
+</div>
+
+  <!-- <div class="slider-container">
+    <div class="slider">
+        <div class="slide"><img src="join1.png" alt="Slide 1"></div>
+        <div class="slide"><img src="AARAMBH.png" alt="Slide 2"></div>
+        <div class="slide"><img src="AARAMBH1.png" alt="Slide 3"></div>
+        <div class="slide"><img src="a1.png" alt="Slide 4"></div>
+        <div class="slide"><img src="aa2.png" alt="Slide 5"></div>
+  
+    </div>
+    <div class="bullets"></div>
+</div> -->
+<!-- <section>
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <a href="#"><img src="join1.png"></a>
+    </div>
+    <div class="mySlides fade">
+      <a href="#"><img src="AARAMBH.png"></a>
+    </div>
+    <div class="mySlides fade">
+      <a href="#"><img src="AARAMBH1.png"></a>
+    </div>
+    <div class="mySlides fade">
+      <a href="#"><img src="a1.png"></a>
+    </div>
+    <div class="mySlides fade">
+      <a href="#"><img src="aa2.png"></a>
+    </div>
+    <div class="dot-container">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
   </div>
-  <div>
-    <center>
-      <video width="100%" height="90%" autoplay loop muted>
-        <source src="av.mp4" type="video/mp4">
-        <source src="av.ogg" type="video/ogg">
-        Your browser does not support the video tag.
-      </video>
-    </center>
-  </div>
+</section> -->
+
+  <!-- <script>
+    const slider = document.querySelector('.slider');
+    const bulletsContainer = document.querySelector('.bullets');
+    let counter = 0;
+
+    // Function to create bullets
+    function createBullets() {
+        for (let i = 0; i < slider.children.length - 1; i++) {
+            const bullet = document.createElement('div');
+            bullet.classList.add('bullet');
+            bullet.addEventListener('click', () => {
+                counter = i*1;
+                updateSlider();
+            });
+            bulletsContainer.appendChild(bullet);
+        }
+    }
+
+    // Function to update slider position and active bullet
+    function updateSlider() {
+        slider.style.transition = "transform 1s ease-in-out";
+        slider.style.transform = `translateX(${-counter * 100}%)`;
+
+        const bullets = Array.from(bulletsContainer.children);
+        bullets.forEach((bullet, index) => {
+            bullet.classList.toggle('active', index==counter - 1);
+        });
+    }
+
+    // Initialize the bullets and start automatic sliding
+    createBullets();
+    setInterval(() => {
+        counter++;
+
+        if (counter === slider.children.length) {
+            counter = 1;
+            setTimeout(() => {
+                slider.style.transition = "none";
+                slider.style.transform = 'translateX(0)';
+            }, 1000);
+        }
+
+        updateSlider();
+    }, 3000); // Change 3000 to your desired interval in milliseconds
+</script> -->
+ 
   <section class="purpose">
     <h2>Our Purpose</h2>
     <div class="purpose-container">
@@ -155,7 +210,6 @@
       Your browser does not support the video tag.
     </video></center>
   </div>
-  </section>
   
 
   <!-- <section class="test">
@@ -224,8 +278,7 @@
         enthusiasts,assisting them in their learning journey.</p>
       <div class="Socials">
         <a href="https://github.com/Project-Arambh" target="_blank" class="github"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/aarambh-the-gateway-to-coding/" target="_blank" class="ln"><i
-            class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/aarambh-the-gateway-to-coding/" target="_blank" class="ln"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
     <ul class="footer-right">
@@ -265,11 +318,11 @@
       <p>All rights are reserved by &copy;conceptial 2023</p>
     </div>
   </footer>
+  
 
-
-  <!-- script for hamberger button-->
-  <script>
-    const toggleButton = document.getElementById('nav-toggle');
+   <!-- script for hamberger button-->
+   <script>
+    const toggleButton= document.getElementById('nav-toggle');
     const navLinks = document.getElementById('navbar');
 
     toggleButton.addEventListener('click', () => {
@@ -277,72 +330,39 @@
     })
 
     const arrowBtn = document.querySelector('.arrow-btn');
-    arrowBtn.addEventListener('mouseenter', () => {
-      arrowBtn.innerHTML = " Read more &rarr;";
-      arrowBtn.style.textDecoration = "underline";
-      arrowBtn.style.color = "#1862CD";
-      arrowBtn.style.fontSize = "17px";
+    arrowBtn.addEventListener('mouseenter',()=>{
+      arrowBtn.innerHTML=" Read more &rarr;";
+      arrowBtn.style.textDecoration="underline";
+      arrowBtn.style.color="#1862CD";
+      arrowBtn.style.fontSize="17px";
     });
-    arrowBtn.addEventListener('mouseleave', () => {
-      arrowBtn.innerHTML = "Read more";
-      arrowBtn.style.textDecoration = "";
-      arrowBtn.style.color = "";
-      arrowBtn.style.fontSize = "";
+    arrowBtn.addEventListener('mouseleave',()=>{
+      arrowBtn.innerHTML="Read more";
+      arrowBtn.style.textDecoration="";
+      arrowBtn.style.color="";
+      arrowBtn.style.fontSize="";
     });
+// slider js
+//     let slideIndex = 0;
+//     showSlides();
 
-  </script>
-  <!-- script for login logout -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    const firebaseConfig = {
-      apiKey: "AIzaSyBHm4KNjA5CRiCcZt43f1ZRGknhC2W8UIw",
-      authDomain: "aarambh-login.firebaseapp.com",
-      databaseURL: "https://aarambh-login-default-rtdb.firebaseio.com",
-      projectId: "aarambh-login",
-      storageBucket: "aarambh-login.appspot.com",
-      messagingSenderId: "457887648284",
-      appId: "1:457887648284:web:9e814d44c1509e7f85add9"
-    };
-    const app = initializeApp(firebaseConfig);
-    let db = getFirestore();
-    const auth = getAuth();
-    let userCreds = JSON.parse(localStorage.getItem("user-creds"));
-    let userInfo = JSON.parse(localStorage.getItem("user-info"));
-    let login = document.getElementById('login')
-    let tool=document.getElementById('tool')
-    let signOut = () => {
-      localStorage.removeItem("user-creds");
-      localStorage.removeItem("user-info");
-      window.location.href = "copy-index2.html"
-    }
-    let checkCred = () => {
-      if (!localStorage.getItem("user-creds")) {
-      window.location.href = "copy-index2.html"
-      }
-      else {
-        login.innerHTML = "Log Out <span>&#10230;</span>"
-        // console.log("Sigh Out");
-      }
-    }
-    let checkAdmin = async () => {
-      // console.log(credentials);
-      let creds=JSON.parse(localStorage.getItem("user-creds"))
-      var ref = doc(db, "userAuthList",creds.uid)
-      const docSnap = await getDoc(ref)
-      try{
-      if(docSnap.data().admin=='true'){
-        tool.style.display="block"
-      }}catch(e){
-        console.log(e)
-      }
-    }
-    window.addEventListener("load", checkCred)
-    login.addEventListener('click', signOut)
-    window.addEventListener("load", checkAdmin)
+//     function showSlides() {
+//       let i;
+//       let slides = document.getElementsByClassName("mySlides");
+//       let dots = document.getElementsByClassName("dot");
+//       for (i = 0; i < slides.length; i++) {
+//         slides[i].style.display = "none";
+//       }
+//       slideIndex++;
+//       if (slideIndex > slides.length) { slideIndex = 1 }
+//       for (i = 0; i < dots.length; i++) {
+//         dots[i].className = dots[i].className.replace(" active", "");
+//       }
+//       slides[slideIndex - 1].style.display = "block";
+//       dots[slideIndex - 1].className += " active";
+//       setTimeout(showSlides, 4000); // Change image every 2 seconds
+//     }
+
   </script>
 </body>
-
 </html>

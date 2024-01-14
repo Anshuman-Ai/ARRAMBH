@@ -57,7 +57,7 @@
           <li class="nav__item"><a href="https://discord.gg/SNjR5HY5" class="nav__link">Community</a></li>
           <li class="nav__item"><a href="html_pages/event.html" class="nav__link">Events</a></li>
           <li class="nav__item"><a href="mailto:arambh.community@gmail.com" class="nav__link">Contact Us</a></li>
-          <li class="nav__item"><a href="html_pages/copy-index.html"><button id="login">Login<span>&#10230;</span></button></a></li>
+          <li class="nav__item"><a href="copy-index.html"><button id="login">Login<span>&#10230;</span></button></a></li>
         </ul>
       </div>
       <a href="#" class="nav-toggle" id="nav-toggle">
@@ -301,11 +301,11 @@
     let signOut = () => {
       localStorage.removeItem("user-creds");
       localStorage.removeItem("user-info");
-      window.location.href = "html_pages/copy-index.html"
+      window.location.href = "index.html"
     }
     let checkCred = () => {
       if (!localStorage.getItem("user-creds")) {
-        window.location.href = 'html_pages/copy-index.html'
+        tool.style.display="block"
       }
       else {
         login.innerHTML = "Log Out <span>&#10230;</span>"

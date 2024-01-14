@@ -301,11 +301,11 @@
     let signOut = () => {
       localStorage.removeItem("user-creds");
       localStorage.removeItem("user-info");
-      window.location.href = "index.html"
+      window.location.href = "copy-index2.html"
     }
     let checkCred = () => {
       if (!localStorage.getItem("user-creds")) {
-        tool.style.display="block"
+      window.location.href = "copy-index2.html"
       }
       else {
         login.innerHTML = "Log Out <span>&#10230;</span>"

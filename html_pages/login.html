@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="css_pages/loginyou.css">
     <meta charset="UTF-8">
@@ -8,6 +9,7 @@
     <title>Sign In | Aarambh</title>
     <link rel="icon" type="image/x-icon" href="arambh-template.jpg">
 </head>
+
 <body>
     <section class="in">
         <div class="container">
@@ -19,16 +21,16 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                <div class="password-input">
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                    <button type="button" id="show-password" onclick="togglePasswordVisibility()">Show</button>
-                </div>
+                    <div class="password-input">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <button type="button" id="show-password" onclick="togglePasswordVisibility()">Show</button>
+                    </div>
                 </div>
                 <div class="forget">
-                    <button type="button" id="forget-password" >Forget password?</button>
+                    <button type="button" id="forget-password">Forget password?</button>
                 </div>
                 <div class="form-group1">
-                    <input type="submit" value="Login">
+                    <input type="submit" id="login" value="Login">
                 </div>
                 <div class="or">
                     <p><span>or</span></p>
@@ -37,5 +39,59 @@
             </form>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyBHm4KNjA5CRiCcZt43f1ZRGknhC2W8UIw",
+            authDomain: "aarambh-login.firebaseapp.com",
+            databaseURL: "https://aarambh-login-default-rtdb.firebaseio.com",
+            projectId: "aarambh-login",
+            storageBucket: "aarambh-login.appspot.com",
+            messagingSenderId: "457887648284",
+            appId: "1:457887648284:web:9e814d44c1509e7f85add9"
+        };
+        const app = initializeApp(firebaseConfig);
+        let db = getFirestore();
+        const auth = getAuth();
+        let submit = document.getElementById('login')
+        let signInUsers = (e) => {
+            e.preventDefault();
+            let email = document.getElementById('email').value
+            let password = document.getElementById('password').value
+            signInWithEmailAndPassword(auth, email, password)
+                .then(async (credentials) => {
+                    console.log(credentials);
+                    var ref = doc(db, "userAuthList", credentials.user.uid)
+                    const docSnap = await getDoc(ref)
+                    if (docSnap.exists()) {
+                        localStorage.setItem('userinfo', JSON.stringify({
+                            username: docSnap.data().name,
+                        }))
+                        localStorage.setItem('user-creds', JSON.stringify(credentials.user))
+                        window.location.href = "/index.html"
+                    } else {
+                    }
+                    
+                })
+                .catch((err) => {
+                    // alert(`Error:${err.message}`)
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                        footer: '<a href="#">Why do I have this issue?</a>'
+                    });
+                    // console.log(err.code);
+                    // console.log(err.message);
+                })
+        }
+        submit.addEventListener('click', signInUsers)
+    </script>
+
 </body>
+
 </html>

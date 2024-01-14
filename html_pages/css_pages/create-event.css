@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.all-contaoiner{
+    display: flex;
+    width: 100%;
+    /* height: 90vh; */
+    background-color: rgb(255, 255, 255);
+}
+.general-info{
+    width: 20vw;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(239, 230, 230);
+    /* margin-top: 5px; */
+}
+.general-links{
+    width: 100%;
+    height: 80px;
+    padding: 10px 30px;
+}
+.event-info{
+    width: 80vw;
+    background-color: rgba(221, 220, 231, 0.356);
+    border: 1px solid rgb(197, 193, 193);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.new-event-btn{
+    width: 100%;
+    /* height: ; */
+    font-size: 24px;
+    margin: 20px 10px;
+}
+.new-event-btn button{
+    float: right;
+    width: 15%;
+    /* height: 100%; */
+}
+.new-event-btn button i{
+    margin-left: 5px;
+}
+/* .work-field{
+    width: 90%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #ffffff;
+} */
+
+
+body {
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+	background-color:#f7f7f7;
+}
+* {box-sizing: border-box}
+
+/* Add padding to container elements */
+.container {
+    padding: 20px;
+      width:70vw;
+    /* position: absolute; */
+    /* left: 50%;
+    top: 50%; */
+    /* transform: translate(-50%, -50%); */
+      border:1px solid #ccc;
+      border-radius:10px;
+      background:white;
+  -webkit-box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  -moz-box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  box-shadow: 2px 1px 21px -9px rgba(0,0,0,0.38);
+  }
+
+/* Full-width input fields */
+input[type=text], input[type=password] ,textarea{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+}
+
+select {
+  width: 18%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+}
+
+input[type=phone] {
+  width: 81%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f7f7f7;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=phone]:focus, select:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.container img{
+    width: 300px;
+}
+#event-thumbnail{
+    display: none;
+}
+.event-thumb-btn{
+    width: 150px;
+    height: 40px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: block;
+    background-color: #0eb7f4;
+}
+/* Set a style for all buttons */
+button {
+  background-color: #0eb7f4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+	font-size:16px;
+	font-family: Montserrat,Arial, Helvetica, sans-serif;
+	border-radius:10px;
+}
+
+button:hover {
+  opacity:.5;
+}
+
+
+/* Change styles for signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .signupbtn {
+     width: 100%;
+  }
+}

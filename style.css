@@ -240,8 +240,8 @@ header .event{
   margin-top: 20px;
 }
 .test-container img{
-  width: 10%;
-  height: 15%;
+  width: 80%;
+  height: 70%;
 }
 .test-name{
   margin-left: 30px;
@@ -258,7 +258,7 @@ header .event{
   text-align: center;
 }
 .purpose-content{
-  background-color: #f8f8f8;
+  background-color: #898585;
   padding: 5%;
   margin-top: 30px;
   border-radius: 3px;
@@ -266,11 +266,11 @@ header .event{
   display: flex;
 }
 .test-content{
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   padding: 5%;
   margin-top: 30px;
   border-radius: 3px;
-  box-shadow: -.01px -.01px 5px .01px #cecece;
+  box-shadow: -.01px -.01px 5px .01px #e6e6e6;
 }
 .qoute{
   margin-top: 10px;

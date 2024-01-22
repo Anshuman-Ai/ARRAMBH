@@ -208,14 +208,14 @@ header .event{
   visibility: visible;
 }
 .purpose{
-  background-image: linear-gradient(to bottom right, rgb(255, 254, 242),rgba(24, 98, 205, 0.25));
+  background-image: (to bottom right, rgb(255, 254, 242));
   padding: 3% 10% 5% 10%;
 }
 .test{
   padding: 3% 10% 5% 10%;
 }
 .purpose h2{
-  text-align: center;
+  text-align: left;
   font-weight: lighter;
   font-size: 1.675rem;
   color: var(--black2);
@@ -258,7 +258,7 @@ header .event{
   text-align: center;
 }
 .purpose-content{
-  background-color: #898585;
+  background-color: #ffffff;
   padding: 5%;
   margin-top: 30px;
   border-radius: 3px;

@@ -13,7 +13,7 @@
 
 <body>
   <!-- navbar -->
-  <nav>
+  <!-- <nav>
     <div class="main-nav">
       <div class="logo">
         <img src="arambh.png" onclick="window.location.href='index.html';">
@@ -31,11 +31,14 @@
         <i class="fa-sharp fa-solid fa-bars"></i>
       </a>
     </div>
-  </nav>
+  </nav> -->
   <!-- navbar end -->
   <section>
     <div class="all-contaoiner">
-      <div class="general-info">
+      <div class="info">
+        <div id="user-greet">
+
+        </div>
         <div class="general-links">Analytics</div>
         <div class="general-links">Events</div>
         <div class="general-links">Members</div>
@@ -47,22 +50,46 @@
         <form>
           <div class="container">
             <h1>Create WorkShop Event</h1>
-            <p>Please fill in this form to create an event.</p>
-
-            <label for="title"><b>Title</b></label>
-            <input type="text" name="title" id="title" placeholder="Enter Title" required>
-            <label for="short-dis"><b>Short Discruption</b></label><br>
-            <textarea name="short-dis" id="short-dis" cols="50" rows="10"></textarea>
-            <br>
-            <label for="full-dis"><b>Full Discruption</b></label><br>
-            <textarea name="full-dis" id="full-dis" cols="50" rows="15"></textarea>
-            <br>
-            <p><b>Event thumbnail</b></p>
-            <img src="web-dev-img.jpg" alt="" id="thumbnail">
-            <label for="event-thumbnail" class="event-thumb-btn"><b>Upload file</b></label><br>
-            <input type="file" id="event-thumbnail" accept="image/jpg, image/png,image/jpeg">
+            <p>Please fill this form to create an event.</p>
+            <div class="general-info">
+              <h3>General Information</h3>
+              <label for="title">Title</label>
+              <input type="text" name="title" id="title" placeholder="Enter Title" required>
+              <label for="short-dis">Short Discruption</label><br>
+              <textarea name="short-dis" id="short-dis" cols="50" rows="10"></textarea>
+              <br>
+              <label for="full-dis">Full Discruption</label><br>
+              <textarea name="full-dis" id="full-dis" cols="50" rows="15"></textarea>
+              <br>
+              <p>Event thumbnail</p>
+              <!-- <img src="web-dev-img.jpg" alt="" id="thumbnail"> -->
+              <label for="event-thumbnail" ><img src="web-dev-img.jpg" alt="" id="thumbnail"></label><br>
+              <button class="event-thumb-btn">Upload File</button>
+              <input type="file" id="event-thumbnail" accept="image/jpg, image/png,image/jpeg">
+            </div>
+            <div class="time-info">
+              <h3>Timing Information</h3><br>
+              <div>
+                <label for="date">Date</label><br>
+                <input type="date" id="date"><br><br>
+              </div>
+              <div>
+                <label for="start-time">Start Time</label><br>
+                <input type="time" id="start-time"><br><br>
+              </div>
+              <div>
+                <label for="end-time">End Time</label><br>
+                <input type="time" id="end-time">
+              </div>
+            </div>
+            <div class="location">
+              <h3>Location</h3>
+              <label for="event_location">Event Location:</label>
+              <input type="text" id="event_location" name="event_location" required>
+              <br>
+            </div>
             <div class="clearfix">
-              <button type="submit" class="btn">Sign Up</button>
+              <button type="submit" class="btn" id="submit">Next</button>
             </div>
           </div>
         </form>
@@ -70,13 +97,44 @@
     </div>
     </div>
   </section>
-<script>
-  let thumbnail=document.getElementById('thumbnail')
-  let eventThumbnail=document.getElementById('event-thumbnail')
-  eventThumbnail.onchange=()=>{
-    thumbnail.src=URL.createObjectURL(eventThumbnail[0])
-  }
-</script>
+  <script>
+    let thumbnail = document.getElementById('thumbnail')
+    let eventThumbnail = document.getElementById('event-thumbnail')
+    eventThumbnail.onchange = () => {
+      thumbnail.src = URL.createObjectURL(eventThumbnail.files[0])
+    }
+    const userGreet=document.getElementById('user-greet')
+    const title=document.getElementById('title').value
+    const shortDis=document.getElementById('short-dis').value
+    const fullDis=document.getElementById('full-dis').value
+    const date=document.getElementById('date').value
+    const startTime=document.getElementById('start-time').value
+    const endTime=document.getElementById('end-time').value
+    const submit=document.getElementById('submit')
+    const eventThumbBtn=document.querySelector('.event-thumb-btn')
+    let obj=JSON.parse(localStorage.getItem('userinfo'))
+    userGreet.innerHTML=`Welcome in Aarambh  ,  ${obj.username}`
+    eventThumbBtn.addEventListener('click',()=>{
+            if (eventThumbnail.files.length > 0) {
+                const file = eventThumbnail.files[0];
+
+                // Convert the image to a Base64-encoded string
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const base64Image = e.target.result;
+
+                    // Store the Base64-encoded string in localStorage
+                    sessionStorage.setItem('storedImage', base64Image);
+                    console.log(sessionStorage.getItem('storedImage'));
+                };
+                reader.readAsDataURL(file);
+            } else {
+                console.error('No file selected');
+            }
+        })
+      submit.addEventListener('click')  
+
+  </script>
 </body>
 
 </html>

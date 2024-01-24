@@ -64,12 +64,11 @@
             let password = document.getElementById('password').value
             signInWithEmailAndPassword(auth, email, password)
                 .then(async (credentials) => {
-                    console.log(credentials);
                     var ref = doc(db, "userAuthList", credentials.user.uid)
                     const docSnap = await getDoc(ref)
                     if (docSnap.exists()) {
                         localStorage.setItem('userinfo', JSON.stringify({
-                            username: docSnap.data().name,
+                            username: docSnap.data().username,
                         }))
                         localStorage.setItem('user-creds', JSON.stringify(credentials.user))
                         window.location.href = "../index.html"
